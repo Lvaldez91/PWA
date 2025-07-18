@@ -10,8 +10,17 @@ function sumOne(number, callback){
     }, 800);
 }
 
-sumOne(5, function(newValor){
-    sumOne(newValor, function(newValor2){
+// Callbacks - para ejecutar n veces un segmento de código.
+sumOne(5, function(error, newValor){
+        if(error){
+            console.log(error);
+            return;
+        }
+    sumOne(newValor, function(error,newValor2){
+            if(error){
+                console.log(error);
+                return;
+            }
         console.log(newValor2);
     });
 });
